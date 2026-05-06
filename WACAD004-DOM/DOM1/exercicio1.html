@@ -41,7 +41,12 @@
         alert(`Quantidade de itens na caixa: ${numeroProdutos}\nValor Total do Pedido: R$ ${valorSubtotal.toFixed(2)}\nFrete: R$ ${valorFrete.toFixed(2)}\nValor Total do Pedido+frete: R$ ${valorTotal.toFixed(2)}`);
       }
 
-      // Chamar a função para calcular o valor total quando a página carregar
-      window.onload = calcularValorTotal;
+      console.log('quantidade de itens na caixa: ' + document.getElementById('lista-produtos').getElementsByClassName('produto-comprado').length);
+      console.log('Valor Total do Pedido: R$ ' + parseFloat(document.getElementById('valor-subtotal').value).toFixed(2));
+      console.log('Frete: R$ ' + parseFloat(document.getElementById('valor-frete').value).toFixed(2));
+      console.log('Valor Total do Pedido+frete: R$ ' + (parseFloat(document.getElementById('valor-subtotal').value) + parseFloat(document.getElementById('valor-frete').value)).toFixed(2));
+        
+
+        calcularValorTotal();
     </script>
 </html>
