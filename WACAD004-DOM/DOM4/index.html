@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 400px;
+      border: 1px solid #999;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Minhas Tarefas</h1>
+
+    <input type="text" id="tarefa" placeholder="Digite uma tarefa...">
+    <button id="btnAdicionar">Adicionar Tarefa</button>
+
+    <ul id="lista">
+      <li>Revisar código da aula passada</li>
+    </ul>
+  </div>
+
+  <script>
+    const input = document.getElementById("tarefa");
+    const botao = document.getElementById("btnAdicionar");
+    const lista = document.getElementById("lista");
+
+    botao.addEventListener("click", function () {
+      const texto = input.value.trim();
+
+      if (texto === "") {
+        alert("Digite uma tarefa!");
+        return;
+      }
+      const novaTarefa = document.createElement("li");
+
+      novaTarefa.innerText = texto;
+
+      lista.appendChild(novaTarefa);
+      input.value = "";
+    });
+  </script>
+
+</body>
+</html>
