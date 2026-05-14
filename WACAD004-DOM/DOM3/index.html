@@ -22,27 +22,22 @@
     </div>
 
     <script>
-        const tarefaJs = document.getElementById("tarefa-js").firstElementChild;
-        const tarefaCarro = document.getElementById("lista-pendentes").firstElementChild;
-        const tarefaLivro = document.getElementById("tarefa-roupas").previousElementSibling;
+      const tarefaCarro = document.getElementById("tarefa-carro");
+      tarefaCarro.remove();
 
+      const tarefaJs = document.getElementById("tarefa-js");
+      const listaConcluidas = document.getElementById("lista-concluidas");
 
-        const listaConcluidas = document.getElementById("lista-concluidas").firstElementChild;
+      listaConcluidas.appendChild(tarefaJs);
 
-        
-        tarefaCarro.remove();
- 
-        tarefaLivro.innerText = "[URGENTE] " + tarefaLivro.innerText;
+      const novaTarefa = document.createElement("li");
+      novaTarefa.innerText = "Fazer exercícios";
 
-        const irmaoAnterior = document.createElement("li")
-        irmaoAnterior.innerText = "Estudar JavaScript";
+      const listaPendentes = document.getElementById("lista-pendentes");
+      listaPendentes.appendChild(novaTarefa);
 
-        listaConcluidas.insertAdjacentElement("afterend", irmaoAnterior);
-
-        tarefaJs.remove();
-
-
-
+      const tarefaLivro = document.getElementById("tarefa-livro");
+      tarefaLivro.innerText = "[URGENTE] " + tarefaLivro.innerText;
     </script>
   </body>
 </html>
