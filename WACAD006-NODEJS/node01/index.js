@@ -2,10 +2,8 @@ const http = require('http');
 const fs = require('fs');
 require('dotenv').config();
 
-// porta vinda do .env
 const PORT = process.env.PORT || 3333;
 
-// diretório recebido por parâmetro
 const diretorio = process.argv[2];
 
 if (!diretorio) {
