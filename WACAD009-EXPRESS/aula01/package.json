@@ -5,6 +5,7 @@
     "start:prod": "node build/index.js"
   },
   "dependencies": {
+    "envalid": "^8.1.1",
     "express": "^5.2.1"
   },
   "devDependencies": {

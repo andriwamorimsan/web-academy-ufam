@@ -1,12 +1,16 @@
-import express from "express";
+import express, { type Request, type Response } from "express";
 
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
-dotenv.config({ quiet: true});
+import validateEnv from '../utils/validateEnv';
 
-const app = express();
-const PORT = process.env.PORT || 3333;
-app.get("/", (req, res) => {
+dotenv.config();
+validateEnv();
+const app = express()
+const PORT = process.env.PORT || 3333
+
+
+ app.get("/", (req: Request, res: Response) => {
  res.send("Hello world!");
 });
 
