@@ -1,13 +1,10 @@
 import express, { type Request, type Response } from "express";
 
-import dotenv from 'dotenv';
+import validateEnv from '../utils/validateEnv.js';
 
-import validateEnv from '../utils/validateEnv';
-
-dotenv.config();
-validateEnv();
+const env = validateEnv();
 const app = express()
-const PORT = process.env.PORT || 3333
+const PORT = env.PORT
 
 
  app.get("/", (req: Request, res: Response) => {

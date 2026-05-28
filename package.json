@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "invalid": "^0.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^10.4.0",
+    "prettier": "^3.8.3"
   }
 }
