@@ -6,8 +6,6 @@ const turma = new Turma(
   "Educação Física"
 );
 
-// CRIAR
-
 const aluno1 = new Aluno(
   1,
   "Andriw Amorim",
@@ -20,8 +18,7 @@ turma.adicionarAluno(aluno1);
 
 turma.listarAlunos();
 
-// EDITAR
-
+// editar o aluno lembrar que o id do aluno é 1
 turma.editarAluno(
   1,
   "Andriw Amorim Atualizado",
@@ -32,8 +29,7 @@ turma.editarAluno(
 
 turma.listarAlunos();
 
-// APAGAR
-
+// deleta o aluno  lembrar que o id do aluno é 1
 turma.removerAluno(1);
 
 turma.listarAlunos();

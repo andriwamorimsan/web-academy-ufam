@@ -5,7 +5,7 @@ import { Bicicleta } from "./models/Bicicleta";
 
 const carrinho = new Carrinho();
 
-// TV
+//// tv
 const tv = new TV(
   "Samsung QLED",
   "4K",
@@ -16,7 +16,7 @@ const tv = new TV(
 
 carrinho.adicionarProduto(tv);
 
-// Celular
+/// celula
 const celular = new Celular(
   "iPhone 15",
   "256GB",
@@ -26,7 +26,7 @@ const celular = new Celular(
 
 carrinho.adicionarProduto(celular);
 
-// Bicicleta
+//// bicicleta
 const bike = new Bicicleta(
   "Caloi Elite",
   29,
