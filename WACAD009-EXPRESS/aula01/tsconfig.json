@@ -41,6 +41,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-  "include": ["src/**/*", "utils/**/*"],
+  "include": ["src/**/*", "router/**/*", "utils/**/*"],
   "exclude": ["node_modules"]
 }
