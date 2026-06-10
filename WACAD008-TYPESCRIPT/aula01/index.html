@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lembretes em TypeScript</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="dist/index.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <section class="painel">
+        <h1>Lembretes</h1>
+
+        <form id="form-lembrete" class="formulario">
+          <input type="hidden" id="indice-edicao" />
+
+          <label for="titulo">Titulo</label>
+          <input type="text" id="titulo" placeholder="Ex.: Estudar TypeScript" required />
+
+          <label for="data-limite">Data limite</label>
+          <input type="date" id="data-limite" />
+
+          <label for="descricao">Descricao</label>
+          <textarea id="descricao" rows="4" placeholder="Detalhes do lembrete"></textarea>
+
+          <div class="botoes">
+            <button type="submit">Salvar</button>
+            <button type="button" id="cancelar-edicao" class="secundario" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="painel">
+        <h2 class="titulo-lista">Lista de lembretes</h2>
+        <div id="lista-lembretes" class="lista"></div>
+      </section>
+    </main>
+  </body>
+</html>

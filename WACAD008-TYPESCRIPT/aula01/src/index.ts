@@ -1,108 +1,176 @@
-type Lembrete = [
-  titulo: string,
-  dataInsercao: string,
-  dataLimite: string | undefined,
-  descricao: string | undefined
+type Lembrete = {
+  titulo: string;
+  dataInsercao: string;
+  dataLimite: string | undefined;
+  descricao: string | undefined;
+};
+
+const lembretes: Lembrete[] = [
+  {
+    titulo: "Estudar TypeScript",
+    dataInsercao: new Date().toLocaleString("pt-BR"),
+    dataLimite: "2026-06-10",
+    descricao: "Revisar tipos e tuplas"
+  },
+  {
+    titulo: "Estudar Programacao Funcional",
+    dataInsercao: new Date().toLocaleString("pt-BR"),
+    dataLimite: "2026-06-11",
+    descricao: "Revisar funcoes de alta ordem"
+  }
 ];
 
-let lembretes: Lembrete[] = [];
+const formulario = document.querySelector<HTMLFormElement>("#form-lembrete");
+const campoTitulo = document.querySelector<HTMLInputElement>("#titulo");
+const campoDataLimite = document.querySelector<HTMLInputElement>("#data-limite");
+const campoDescricao = document.querySelector<HTMLTextAreaElement>("#descricao");
+const campoIndice = document.querySelector<HTMLInputElement>("#indice-edicao");
+const lista = document.querySelector<HTMLDivElement>("#lista-lembretes");
+const botaoCancelar = document.querySelector<HTMLButtonElement>("#cancelar-edicao");
 
-function criarLembrete(
-  titulo: string,
-  dataLimite?: string,
-  descricao?: string
-): void {
-
-  const novoLembrete: Lembrete = [
+function criarLembrete(titulo: string, dataLimite?: string, descricao?: string): void {
+  lembretes.push({
     titulo,
-    new Date().toLocaleString(),
+    dataInsercao: new Date().toLocaleString("pt-BR"),
     dataLimite,
     descricao
-  ];
-
-  lembretes.push(novoLembrete);
-
-  console.log("Lembrete criado!");
-}
-
-function listarLembretes(): void {
-
-  console.log("\n===== LEMBRETES =====");
-
-  lembretes.forEach((item, index) => {
-    console.log(`
-[${index}]
-Título: ${item[0]}
-Data Inserção: ${item[1]}
-Data Limite: ${item[2] ?? "Não definida"}
-Descrição: ${item[3] ?? "Sem descrição"}
-`);
   });
 }
 
-function editarLembrete(
-  index: number,
-  novoTitulo: string,
-  novaDataLimite?: string,
-  novaDescricao?: string
-): void {
+function editarLembrete(index: number, titulo: string, dataLimite?: string, descricao?: string): void {
+  const lembrete = lembretes[index];
 
-  if (!lembretes[index]) {
-    console.log("Lembrete não encontrado");
+  if (!lembrete) {
     return;
   }
 
-  lembretes[index] = [
-    novoTitulo,
-    lembretes[index][1],
-    novaDataLimite,
-    novaDescricao
-  ];
-
-  console.log("Lembrete editado!");
+  lembretes[index] = {
+    ...lembrete,
+    titulo,
+    dataLimite,
+    descricao
+  };
 }
 
 function apagarLembrete(index: number): void {
+  lembretes.splice(index, 1);
+  renderizarLembretes();
+}
 
-  if (!lembretes[index]) {
-    console.log("Lembrete não encontrado");
+function limparFormulario(): void {
+  formulario?.reset();
+
+  if (campoIndice) {
+    campoIndice.value = "";
+  }
+
+  if (botaoCancelar) {
+    botaoCancelar.hidden = true;
+  }
+}
+
+function preencherFormulario(index: number): void {
+  const lembrete = lembretes[index];
+
+  if (!lembrete || !campoTitulo || !campoDataLimite || !campoDescricao || !campoIndice || !botaoCancelar) {
     return;
   }
 
-  lembretes.splice(index, 1);
-
-  console.log("Lembrete removido!");
+  campoTitulo.value = lembrete.titulo;
+  campoDataLimite.value = lembrete.dataLimite ?? "";
+  campoDescricao.value = lembrete.descricao ?? "";
+  campoIndice.value = String(index);
+  botaoCancelar.hidden = false;
+  campoTitulo.focus();
 }
 
-criarLembrete(
-  "Estudar TypeScript",
-  "10/06/2026",
-  "Revisar tipos e tuplas"
-);
+function formatarData(data?: string): string {
+  if (!data) {
+    return "Nao definida";
+  }
 
-criarLembrete(
-  "Estudar Programação Funcional",
-  "11/06/2026",
-  "Revisar funções de alta ordem"
-);
+  return new Date(`${data}T00:00:00`).toLocaleDateString("pt-BR");
+}
 
-listarLembretes();
+function renderizarLembretes(): void {
+  if (!lista) {
+    return;
+  }
 
-editarLembrete(
-  0,
-  "Estudar TypeScript Avançado",
-  "15/06/2026",
-  "Revisar interfaces"
-);
-editarLembrete(
-  1,
-  "Estudar programação funcional avançada",
-  "12/06/2026",
-  "Revisar interfaces"
-);
+  lista.innerHTML = "";
 
-listarLembretes();
+  if (lembretes.length === 0) {
+    lista.innerHTML = '<p class="mensagem-vazia">Nenhum lembrete cadastrado.</p>';
+    return;
+  }
 
-apagarLembrete(1);
+  lembretes.forEach((lembrete, index) => {
+    const item = document.createElement("article");
+    item.className = "lembrete";
 
-listarLembretes();
+    item.innerHTML = `
+      <div>
+        <h2>${lembrete.titulo}</h2>
+        <p>${lembrete.descricao || "Sem descricao"}</p>
+        <span>Criado em: ${lembrete.dataInsercao}</span>
+        <span>Data limite: ${formatarData(lembrete.dataLimite)}</span>
+      </div>
+      <div class="acoes">
+        <button type="button" data-editar="${index}">Editar</button>
+        <button type="button" data-apagar="${index}" class="perigo">Apagar</button>
+      </div>
+    `;
+
+    lista.appendChild(item);
+  });
+}
+
+formulario?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!campoTitulo || !campoDataLimite || !campoDescricao || !campoIndice) {
+    return;
+  }
+
+  const titulo = campoTitulo.value.trim();
+  const dataLimite = campoDataLimite.value || undefined;
+  const descricao = campoDescricao.value.trim() || undefined;
+  const indiceEdicao = campoIndice.value;
+
+  if (!titulo) {
+    alert("Informe o titulo do lembrete.");
+    return;
+  }
+
+  if (indiceEdicao) {
+    editarLembrete(Number(indiceEdicao), titulo, dataLimite, descricao);
+  } else {
+    criarLembrete(titulo, dataLimite, descricao);
+  }
+
+  limparFormulario();
+  renderizarLembretes();
+});
+
+lista?.addEventListener("click", (event) => {
+  const elemento = event.target;
+
+  if (!(elemento instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const indiceEditar = elemento.dataset.editar;
+  const indiceApagar = elemento.dataset.apagar;
+
+  if (indiceEditar) {
+    preencherFormulario(Number(indiceEditar));
+  }
+
+  if (indiceApagar) {
+    apagarLembrete(Number(indiceApagar));
+  }
+});
+
+botaoCancelar?.addEventListener("click", limparFormulario);
+
+renderizarLembretes();
