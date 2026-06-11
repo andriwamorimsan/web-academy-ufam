@@ -1,4 +1,4 @@
-import { Aluno } from "./Aluno";
+import { Aluno } from "./Aluno.js";
 
 export class Turma {
 
@@ -51,6 +51,10 @@ export class Turma {
 
   getNumAlunos(): number {
     return this.alunos.length;
+  }
+
+  getAlunos(): Aluno[] {
+    return [...this.alunos];
   }
 
   getMediaIdades(): number {

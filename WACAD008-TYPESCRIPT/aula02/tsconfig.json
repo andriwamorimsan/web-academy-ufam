@@ -1,11 +1,14 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
      "esModuleInterop": true,
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "es2020",
+    "target": "es2020",
+    "lib": ["dom", "es2020"],
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],
@@ -32,7 +35,7 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    // "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",

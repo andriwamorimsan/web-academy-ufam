@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3f5f7;
+  color: #1f2933;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 24px;
+  width: min(1100px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.painel,
+.aluno {
+  border: 1px solid #d8dee5;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(31, 41, 51, 0.08);
+}
+
+.painel {
+  padding: 24px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-size: 32px;
+}
+
+.subtitulo {
+  margin-bottom: 24px;
+  color: #64748b;
+}
+
+.formulario {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+button {
+  width: 100%;
+  border-radius: 6px;
+  font: inherit;
+}
+
+input {
+  border: 1px solid #c7d0da;
+  padding: 11px 12px;
+}
+
+.botoes,
+.acoes {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: 0;
+  padding: 11px 14px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.94);
+}
+
+.secundario {
+  background: #64748b;
+}
+
+.perigo {
+  background: #dc2626;
+}
+
+.estatisticas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.estatisticas div {
+  border: 1px solid #d8dee5;
+  border-radius: 8px;
+  padding: 14px;
+  background: #f8fafc;
+}
+
+.estatisticas strong,
+.estatisticas span,
+.aluno span {
+  display: block;
+}
+
+.estatisticas strong {
+  margin-bottom: 4px;
+  font-size: 24px;
+}
+
+.estatisticas span,
+.aluno span,
+.mensagem-vazia {
+  color: #64748b;
+}
+
+.titulo-lista {
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.lista {
+  display: grid;
+  gap: 14px;
+}
+
+.aluno {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+}
+
+.aluno h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.aluno span {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.acoes {
+  min-width: 180px;
+  align-items: flex-start;
+}
+
+.mensagem-vazia {
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+  }
+
+  .estatisticas {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+
+  .aluno {
+    flex-direction: column;
+  }
+
+  .acoes {
+    min-width: 0;
+  }
+}

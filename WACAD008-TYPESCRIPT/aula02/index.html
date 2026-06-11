@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turma em TypeScript</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="dist/index.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <section class="painel">
+        <h1>Turma</h1>
+        <p class="subtitulo">Educacao Fisica</p>
+
+        <form id="form-aluno" class="formulario">
+          <input type="hidden" id="id-aluno" />
+
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" placeholder="Ex.: Andriw Amorim" required />
+
+          <label for="idade">Idade</label>
+          <input type="number" id="idade" min="1" required />
+
+          <label for="altura">Altura</label>
+          <input type="number" id="altura" min="0.1" step="0.01" placeholder="Ex.: 1.75" required />
+
+          <label for="peso">Peso</label>
+          <input type="number" id="peso" min="1" step="0.01" placeholder="Ex.: 78" required />
+
+          <div class="botoes">
+            <button type="submit">Salvar</button>
+            <button type="button" id="cancelar-edicao" class="secundario" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="painel">
+        <h2>Estatisticas</h2>
+        <div class="estatisticas">
+          <div>
+            <strong id="total-alunos">0</strong>
+            <span>Alunos</span>
+          </div>
+          <div>
+            <strong id="media-idades">0.00</strong>
+            <span>Media idades</span>
+          </div>
+          <div>
+            <strong id="media-alturas">0.00</strong>
+            <span>Media alturas</span>
+          </div>
+          <div>
+            <strong id="media-pesos">0.00</strong>
+            <span>Media pesos</span>
+          </div>
+        </div>
+
+        <h2 class="titulo-lista">Alunos</h2>
+        <div id="lista-alunos" class="lista"></div>
+      </section>
+    </main>
+  </body>
+</html>

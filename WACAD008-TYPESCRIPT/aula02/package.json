@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts"
+    "start": "node server.js",
+    "build": "tsc",
+    "dev": "tsc --watch"
   },
   "keywords": [],
   "author": "",
