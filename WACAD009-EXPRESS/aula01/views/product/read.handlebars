@@ -1,0 +1,13 @@
+<h1>{{product.nome}}</h1>
+
+<dl class="row">
+  <dt class="col-sm-2">Preco</dt>
+  <dd class="col-sm-10">R$ {{product.preco}}</dd>
+  <dt class="col-sm-2">Estoque</dt>
+  <dd class="col-sm-10">{{product.estoque}}</dd>
+</dl>
+
+<div class="d-flex gap-2">
+  <a class="btn btn-primary" href="/product/update/{{product.id}}">Editar</a>
+  <a class="btn btn-outline-secondary" href="/product">Voltar</a>
+</div>

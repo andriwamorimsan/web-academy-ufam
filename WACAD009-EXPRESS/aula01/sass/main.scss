@@ -1,0 +1,23 @@
+$brand-color: #146c43;
+$page-bg: #f8f9fa;
+
+body {
+  background: $page-bg;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.hb1-message {
+  color: $brand-color;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-form {
+  max-width: 36rem;
+}

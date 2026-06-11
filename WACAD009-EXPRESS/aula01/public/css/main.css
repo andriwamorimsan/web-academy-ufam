@@ -1,0 +1,22 @@
+body {
+  background: #f8f9fa;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.hb1-message {
+  color: #146c43;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-form {
+  max-width: 36rem;
+}
+
+/*# sourceMappingURL=main.css.map */

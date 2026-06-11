@@ -1,0 +1,33 @@
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+  <h1 class="mb-0">Produtos</h1>
+  <a class="btn btn-primary" href="/product/create">Novo produto</a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Preco</th>
+        <th>Estoque</th>
+        <th class="text-end">Acoes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+        <tr>
+          <td>{{nome}}</td>
+          <td>R$ {{preco}}</td>
+          <td>{{estoque}}</td>
+          <td class="text-end">
+            <a class="btn btn-sm btn-outline-secondary" href="/product/{{id}}">Ver</a>
+            <a class="btn btn-sm btn-outline-primary" href="/product/update/{{id}}">Editar</a>
+            <form class="d-inline" action="/product/{{id}}" method="post">
+              <button class="btn btn-sm btn-outline-danger" type="submit">Excluir</button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
