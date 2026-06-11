@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho em TypeScript</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="dist/index.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <section class="painel">
+        <h1>Adicionar produto</h1>
+
+        <form id="form-produto" class="formulario">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" required>
+            <option value="tv">TV</option>
+            <option value="celular">Celular</option>
+            <option value="bicicleta">Bicicleta</option>
+          </select>
+
+          <label for="modelo">Modelo</label>
+          <input type="text" id="modelo" required />
+
+          <label for="fabricante">Fabricante</label>
+          <input type="text" id="fabricante" required />
+
+          <label for="valor">Valor</label>
+          <input type="number" id="valor" min="0" step="0.01" required />
+
+          <label for="resolucao" class="campo-tv">Resolucao</label>
+          <input type="text" id="resolucao" class="campo-tv" />
+
+          <label for="polegadas" class="campo-tv">Tamanho em polegadas</label>
+          <input type="number" id="polegadas" class="campo-tv" min="1" />
+
+          <label for="memoria" class="campo-celular">Memoria</label>
+          <input type="text" id="memoria" class="campo-celular" />
+
+          <label for="aro" class="campo-bicicleta">Tamanho do aro</label>
+          <input type="number" id="aro" class="campo-bicicleta" min="1" />
+
+          <button type="submit">Adicionar ao carrinho</button>
+        </form>
+      </section>
+
+      <section class="painel">
+        <h1>Carrinho</h1>
+
+        <div id="lista-produtos" class="lista"></div>
+
+        <footer class="resumo">
+          <span>Quantidade: <strong id="quantidade">0</strong></span>
+          <span>Total: <strong id="total">R$ 0,00</strong></span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

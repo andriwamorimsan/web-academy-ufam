@@ -1,4 +1,4 @@
-import { Produto } from "../interfaces/Produto";
+import type { Produto } from "../interfaces/Produto.js";
 
 export class Celular implements Produto {
 

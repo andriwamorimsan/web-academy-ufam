@@ -1,4 +1,4 @@
-import { Produto } from "../interfaces/Produto";
+import type { Produto } from "../interfaces/Produto.js";
 
 export class Carrinho<T extends Produto> {
 
@@ -6,9 +6,6 @@ export class Carrinho<T extends Produto> {
 
   adicionarProduto(produto: T): void {
     this.produtos.push(produto);
-
-    console.log("\nProduto adicionado!");
-    this.exibirCarrinho();
   }
 
   getTotalCarrinho(): number {
@@ -20,6 +17,10 @@ export class Carrinho<T extends Produto> {
 
   getQuantidadeProdutos(): number {
     return this.produtos.length;
+  }
+
+  getProdutos(): T[] {
+    return [...this.produtos];
   }
 
   exibirCarrinho(): void {
