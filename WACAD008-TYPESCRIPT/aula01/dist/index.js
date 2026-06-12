@@ -1,16 +1,6 @@
 const lembretes = [
-    {
-        titulo: "Estudar TypeScript",
-        dataInsercao: new Date().toLocaleString("pt-BR"),
-        dataLimite: "2026-06-10",
-        descricao: "Revisar tipos e tuplas"
-    },
-    {
-        titulo: "Estudar Programacao Funcional",
-        dataInsercao: new Date().toLocaleString("pt-BR"),
-        dataLimite: "2026-06-11",
-        descricao: "Revisar funcoes de alta ordem"
-    }
+    ["Estudar TypeScript", new Date().toLocaleString("pt-BR"), "2026-06-10", "Revisar tipos e tuplas"],
+    ["Estudar Programacao Funcional", new Date().toLocaleString("pt-BR"), "2026-06-11", "Revisar funcoes de alta ordem"]
 ];
 const formulario = document.querySelector("#form-lembrete");
 const campoTitulo = document.querySelector("#titulo");
@@ -20,24 +10,15 @@ const campoIndice = document.querySelector("#indice-edicao");
 const lista = document.querySelector("#lista-lembretes");
 const botaoCancelar = document.querySelector("#cancelar-edicao");
 function criarLembrete(titulo, dataLimite, descricao) {
-    lembretes.push({
-        titulo,
-        dataInsercao: new Date().toLocaleString("pt-BR"),
-        dataLimite,
-        descricao
-    });
+    lembretes.push([titulo, new Date().toLocaleString("pt-BR"), dataLimite, descricao]);
 }
 function editarLembrete(index, titulo, dataLimite, descricao) {
     const lembrete = lembretes[index];
     if (!lembrete) {
         return;
     }
-    lembretes[index] = {
-        ...lembrete,
-        titulo,
-        dataLimite,
-        descricao
-    };
+    const [, dataInsercao] = lembrete;
+    lembretes[index] = [titulo, dataInsercao, dataLimite, descricao];
 }
 function apagarLembrete(index) {
     lembretes.splice(index, 1);
@@ -57,9 +38,10 @@ function preencherFormulario(index) {
     if (!lembrete || !campoTitulo || !campoDataLimite || !campoDescricao || !campoIndice || !botaoCancelar) {
         return;
     }
-    campoTitulo.value = lembrete.titulo;
-    campoDataLimite.value = lembrete.dataLimite ?? "";
-    campoDescricao.value = lembrete.descricao ?? "";
+    const [titulo, , dataLimite, descricao] = lembrete;
+    campoTitulo.value = titulo;
+    campoDataLimite.value = dataLimite ?? "";
+    campoDescricao.value = descricao ?? "";
     campoIndice.value = String(index);
     botaoCancelar.hidden = false;
     campoTitulo.focus();
@@ -79,15 +61,15 @@ function renderizarLembretes() {
         lista.innerHTML = '<p class="mensagem-vazia">Nenhum lembrete cadastrado.</p>';
         return;
     }
-    lembretes.forEach((lembrete, index) => {
+    lembretes.forEach(([titulo, dataInsercao, dataLimite, descricao], index) => {
         const item = document.createElement("article");
         item.className = "lembrete";
         item.innerHTML = `
       <div>
-        <h2>${lembrete.titulo}</h2>
-        <p>${lembrete.descricao || "Sem descricao"}</p>
-        <span>Criado em: ${lembrete.dataInsercao}</span>
-        <span>Data limite: ${formatarData(lembrete.dataLimite)}</span>
+        <h2>${titulo}</h2>
+        <p>${descricao || "Sem descricao"}</p>
+        <span>Criado em: ${dataInsercao}</span>
+        <span>Data limite: ${formatarData(dataLimite)}</span>
       </div>
       <div class="acoes">
         <button type="button" data-editar="${index}">Editar</button>
