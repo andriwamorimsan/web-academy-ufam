@@ -11,8 +11,6 @@ export class Turma {
 
   adicionarAluno(aluno: Aluno): void {
     this.alunos.push(aluno);
-    console.log("Aluno adicionado!");
-    this.exibirEstatisticas();
   }
 
   editarAluno(
@@ -26,7 +24,6 @@ export class Turma {
     const aluno = this.alunos.find(a => a.id === id);
 
     if (!aluno) {
-      console.log("Aluno não encontrado!");
       return;
     }
 
@@ -34,9 +31,6 @@ export class Turma {
     aluno.idade = idade;
     aluno.altura = altura;
     aluno.peso = peso;
-
-    console.log("Aluno atualizado!");
-    this.exibirEstatisticas();
   }
 
   removerAluno(id: number): void {
@@ -44,9 +38,6 @@ export class Turma {
     this.alunos = this.alunos.filter(
       aluno => aluno.id !== id
     );
-
-    console.log("Aluno removido!");
-    this.exibirEstatisticas();
   }
 
   getNumAlunos(): number {
@@ -99,43 +90,5 @@ export class Turma {
     return soma / this.alunos.length;
   }
 
-  listarAlunos(): void {
 
-    console.log("\n===== ALUNOS =====");
-
-    this.alunos.forEach(aluno => {
-      console.log(`
-ID: ${aluno.id}
-Nome: ${aluno.nomeCompleto}
-Idade: ${aluno.idade}
-Altura: ${aluno.altura}
-Peso: ${aluno.peso}
-`);
-    });
-  }
-
-  exibirEstatisticas(): void {
-
-    console.log("\n===== ESTATÍSTICAS =====");
-
-    console.log(
-      "Quantidade de alunos:",
-      this.getNumAlunos()
-    );
-
-    console.log(
-      "Média das idades:",
-      this.getMediaIdades().toFixed(2)
-    );
-
-    console.log(
-      "Média das alturas:",
-      this.getMediaAlturas().toFixed(2)
-    );
-
-    console.log(
-      "Média dos pesos:",
-      this.getMediaPesos().toFixed(2)
-    );
-  }
 }

@@ -1,7 +1,7 @@
 import { Aluno } from "./models/Aluno.js";
 import { Turma } from "./models/Turma.js";
 
-const turma = new Turma(1, "Educacao Fisica");
+const turma = new Turma(1, "Turma A");
 let proximoId = 1;
 
 const formulario = document.querySelector<HTMLFormElement>("#form-aluno");

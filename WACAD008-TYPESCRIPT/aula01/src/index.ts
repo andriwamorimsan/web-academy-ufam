@@ -6,7 +6,7 @@ type Lembrete = [
 ];
 
 const lembretes: Lembrete[] = [
-  ["Estudar TypeScript", new Date().toLocaleString("pt-BR"), "2026-06-10", "Revisar tipos e tuplas"],
+  ["Estudar TypeScrpt", new Date().toLocaleString("pt-BR"), "2026-06-10", "Revisar tipos e tuplas"],
   ["Estudar Programacao Funcional", new Date().toLocaleString("pt-BR"), "2026-06-11", "Revisar funcoes de alta ordem"]
 ];
 

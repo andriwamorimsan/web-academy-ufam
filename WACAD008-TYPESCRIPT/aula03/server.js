@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const root = __dirname;
-const initialPort = 5503;
+const initialPort = 5600;
 
 const types = {
   ".html": "text/html; charset=utf-8",
@@ -38,15 +38,7 @@ const server = http.createServer((request, response) => {
 });
 
 function start(port) {
-  server.once("error", (error) => {
-    if (error.code === "EADDRINUSE") {
-      console.log(`Porta ${port} em uso. Tentando http://127.0.0.1:${port + 1}`);
-      start(port + 1);
-      return;
-    }
-
-    throw error;
-  });
+  
 
   server.listen(port, "127.0.0.1", () => {
     console.log(`Servidor rodando em http://127.0.0.1:${port}`);
