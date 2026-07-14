@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "dotenv": "^17.4.2",
+    "envalid": "^8.2.0",
     "invalid": "^0.0.5"
   },
   "devDependencies": {
