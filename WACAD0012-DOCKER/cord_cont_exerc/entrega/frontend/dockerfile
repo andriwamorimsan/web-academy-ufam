@@ -1,0 +1,12 @@
+FROM node:22
+
+WORKDIR /app
+
+COPY frontend.js .
+
+RUN npm init -y
+RUN npm install querystring
+
+EXPOSE 3000
+
+CMD ["node", "frontend.js"]

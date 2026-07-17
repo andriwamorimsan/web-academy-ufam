@@ -1,0 +1,54 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: final_mysql_livros
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: senha_livros_docker
+      MYSQL_DATABASE: web_academy_livros
+    volumes:
+      - livros_mysql_dados:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: final_phpmyadmin_livros
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    container_name: final_api_livros
+    restart: always
+    ports:
+      - "4444:4444"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - livros_api_logs:/log
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    container_name: final_web_livros
+    restart: always
+    ports:
+      - "8000:80"
+    depends_on:
+      - backend
+
+volumes:
+  livros_mysql_dados:
+  livros_api_logs:

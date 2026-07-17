@@ -1,0 +1,46 @@
+# Entrar na pasta do frontend
+cd "WACAD0012 - cord_cont_exerc/frontend"
+
+# Construir a imagem do frontend
+docker build --no-cache -t frontend .
+
+# Entrar na pasta do backend
+cd ../backend
+
+# Construir a imagem do backend
+docker build --no-cache -t backend .
+
+# Criar a rede Docker
+docker network create cord-net
+
+# Executar o container do backend
+docker run -dit \
+  --name back \
+  --network cord-net \
+  -p 4000:4000 \
+  backend
+
+# Executar o container do frontend
+docker run -dit \
+  --name front \
+  --network cord-net \
+  -p 3000:3000 \
+  frontend
+
+# Verificar se os containers estão em execução
+docker ps
+
+# Testar o frontend
+curl http://localhost:3000
+
+# Visualizar os logs do backend
+docker logs back
+
+# Visualizar os logs do frontend
+docker logs front
+
+# Remover os containers
+docker rm -f front back
+
+# Remover a rede
+docker network rm cord-net
