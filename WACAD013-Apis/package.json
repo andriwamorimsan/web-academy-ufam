@@ -1,0 +1,13 @@
+{
+  "name": "wacad013-apis",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix ExpApi run start",
+    "dev": "npm --prefix ExpApi run dev",
+    "test": "npm --prefix ExpApi test",
+    "typecheck": "npm --prefix ExpApi run typecheck",
+    "db:push": "npm --prefix ExpApi run db:push",
+    "seed": "npm --prefix ExpApi run seed"
+  }
+}
