@@ -12,9 +12,9 @@ export function ProductCard({ product, addToCart }: ProductCardProps) {
     <div className='col'>
       <div className='card shadow-sm h-100'>
         <Image
-          src={product.fotos[0]}
+          src={product.fotos[0].src}
           className='card-img-top'
-          alt={product.nome}
+          alt={product.fotos[0].titulo}
           width={300}
           height={320}
         />
@@ -22,7 +22,7 @@ export function ProductCard({ product, addToCart }: ProductCardProps) {
           <h5 className='card-title'>{product.nome}</h5>
           <p className='card-text text-secondary'>{product.descricao}</p>
           <p className='card-text fw-semibold mt-auto'>
-            {formatCurrency(product.preco)}
+            {formatCurrency(Number(product.preco))}
           </p>
           <button
             className='btn btn-dark d-block w-100'

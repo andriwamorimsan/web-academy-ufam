@@ -10,12 +10,13 @@ export function CartItem({
   item,
   removeItemFromCart,
 }: CartItemProps) {
-  const total = item.produto.preco * item.quantidade
+  const preco = Number(item.produto.preco)
+  const total = preco * item.quantidade
 
   return (
     <tr>
       <td>{item.produto.nome}</td>
-      <td>{formatCurrency(item.produto.preco)}</td>
+      <td>{formatCurrency(preco)}</td>
       <td>{item.quantidade}</td>
       <td>{formatCurrency(total)}</td>
       <td>

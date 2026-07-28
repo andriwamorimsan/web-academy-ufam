@@ -13,7 +13,7 @@ export default function Products() {
   const addToCart = (product: Product): void => {
     setTotalItems((currentTotalItems: number) => currentTotalItems + 1)
     setTotalValue(
-      (currentTotalValue: number) => currentTotalValue + product.preco,
+      (currentTotalValue: number) => currentTotalValue + Number(product.preco),
     )
   }
 

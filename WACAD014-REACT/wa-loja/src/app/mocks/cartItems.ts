@@ -4,14 +4,10 @@ import { products } from './products'
 export const cartItems: ItemCarrinho[] = [
   {
     produto: products[0],
-    quantidade: 1,
+    quantidade: 2,
   },
   {
-    produto: products[2],
-    quantidade: 1,
-  },
-  {
-    produto: products[3],
+    produto: products[1],
     quantidade: 1,
   },
 ]
@@ -22,7 +18,7 @@ export function getCartQuantity(items: ItemCarrinho[]) {
 
 export function getCartTotal(items: ItemCarrinho[]) {
   return items.reduce(
-    (total, item) => total + item.produto.preco * item.quantidade,
+    (total, item) => total + Number(item.produto.preco) * item.quantidade,
     0,
   )
 }

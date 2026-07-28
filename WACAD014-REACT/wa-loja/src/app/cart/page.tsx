@@ -32,7 +32,7 @@ export default function Cart() {
           totalItems={getCartQuantity(items)}
           totalValue={getCartTotal(items)}
         />
-      </div>
+      </div> 
     </main>
   )
 }
