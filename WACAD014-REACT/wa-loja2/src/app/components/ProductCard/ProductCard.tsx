@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import type { Product } from '../../types/product'
 import { formatCurrency } from '../../utils/formatCurrency'
 
@@ -15,6 +18,18 @@ export function ProductCard({
   addToFavorites,
   isAddingFavorite,
 }: ProductCardProps) {
+  const router = useRouter()
+
+  function viewProductDetails(productName: string): void {
+    const sanitizedProductName = productName
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .toLowerCase()
+
+    router.push(`/product/${sanitizedProductName}`)
+  }
+
   return (
     <div className='col'>
       <div className='card shadow-sm h-100'>
@@ -24,6 +39,8 @@ export function ProductCard({
           alt={product.fotos[0].titulo}
           width={300}
           height={320}
+          onClick={() => viewProductDetails(product.nome)}
+          role='button'
         />
         <div className='card-body bg-light d-flex flex-column'>
           <h5 className='card-title'>{product.nome}</h5>
