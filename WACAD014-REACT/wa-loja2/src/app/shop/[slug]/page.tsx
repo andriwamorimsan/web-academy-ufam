@@ -16,4 +16,4 @@ export default function Exemple() {
             <h2>O valor retornando no query é param é: {value}</h2>
         </>
     )
-}
+} 
