@@ -1,26 +1,23 @@
 'use client'
 
 import Link from 'next/link'
-import {ChangeEvent,SubmitEvent, useState} from "react";
-import {useRouter} from "next/navigation";
+import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
+
+type LoginForm = {
+    email: string
+    password: string
+}
 
 export default function Login() {
-
     const router = useRouter();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<LoginForm>()
 
-     const [form, setForm] = useState({
-         email: "",
-         password: "",
-     })
-
-    const handleChange = ({target}: ChangeEvent<HTMLInputElement> ) => {
-         const {id, value} = target
-        setForm({...form, [id]: value})
-        console.log(form)
-    }
-    const handleSubmit =   ( event: SubmitEvent<HTMLFormElement>) => {
-         event.preventDefault()
-
+    const submitLogin = () => {
         router.push('/')
     }
 
@@ -32,7 +29,7 @@ export default function Login() {
                         <h2>Bem vindo à WA Loja!</h2>
                     </div>{' '}
                     <div className='col-12 col-md-8 d-flex justify-content-center align-items-center'>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit(submitLogin)}>
                             <div className='mb-3'>
                                 <label htmlFor='email' className='form-label'>
                                     Email
@@ -41,11 +38,16 @@ export default function Login() {
                                     type='email'
                                     className='form-control form-control-lg'
                                     id='email'
-                                    value={form.email}
                                     aria-describedby='email'
-                                    onChange={handleChange}
-                                    required
+                                    {...register('email', {
+                                        required: 'email obrigatorio',
+                                    })}
                                 />
+                                {errors.email && (
+                                    <span className='text-danger small'>
+                                        {errors.email.message}
+                                    </span>
+                                )}
                             </div>
                             <div className='mb-3'>
                                 <label htmlFor='password' className='form-label'>
@@ -55,10 +57,19 @@ export default function Login() {
                                     type='password'
                                     className='form-control form-control-lg'
                                     id='password'
-                                    value={form.password}
-                                    onChange={handleChange}
-                                    required
+                                    {...register('password', {
+                                        required: 'senha obrigatoria',
+                                        minLength: {
+                                            value: 6,
+                                            message: 'a senha dev ter no minimo 6 caracters',
+                                        },
+                                    })}
                                 />
+                                {errors.password && (
+                                    <span className='text-danger small'>
+                                        {errors.password.message}
+                                    </span>
+                                )}
                             </div>
 
                             <div className='d-grid col-12'>
