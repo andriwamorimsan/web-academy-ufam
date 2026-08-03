@@ -30,6 +30,11 @@ export function Navbar() {
                 Carrinho
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link className='nav-link' href='/favorites'>
+                Favoritos
+              </Link>
+            </li>
           </ul>
 
           <button className='btn btn-dark'>Sair</button>
