@@ -7,7 +7,13 @@ type ProductListProps = {
 }
 
 export function ProductList({ addToCart }: ProductListProps) {
-  const { products, isPending, isError } = useProductList()
+  const {
+    products,
+    isPending,
+    isError,
+    favoriteProduct,
+    isFavoritePending,
+  } = useProductList()
 
   if (isPending) return 'carregando dados...'
 
@@ -21,6 +27,8 @@ export function ProductList({ addToCart }: ProductListProps) {
         <ProductCard
           product={product}
           addToCart={addToCart}
+          addToFavorites={favoriteProduct}
+          isAddingFavorite={isFavoritePending}
           key={product.id}
         />
       ))}

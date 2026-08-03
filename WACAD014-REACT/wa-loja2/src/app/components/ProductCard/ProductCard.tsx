@@ -5,9 +5,16 @@ import { formatCurrency } from '../../utils/formatCurrency'
 type ProductCardProps = {
   product: Product
   addToCart: (product: Product) => void
+  addToFavorites: (product: Product) => void
+  isAddingFavorite: boolean
 }
 
-export function ProductCard({ product, addToCart }: ProductCardProps) {
+export function ProductCard({
+  product,
+  addToCart,
+  addToFavorites,
+  isAddingFavorite,
+}: ProductCardProps) {
   return (
     <div className='col'>
       <div className='card shadow-sm h-100'>
@@ -30,6 +37,14 @@ export function ProductCard({ product, addToCart }: ProductCardProps) {
             onClick={() => addToCart(product)}
           >
             Adicionar no carrinho
+          </button>
+          <button
+            className='btn btn-outline-danger d-block w-100 mt-2'
+            type='button'
+            onClick={() => addToFavorites(product)}
+            disabled={isAddingFavorite}
+          >
+            {isAddingFavorite ? 'Favoritando...' : 'Favoritar'}
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
