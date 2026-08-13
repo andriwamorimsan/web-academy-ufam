@@ -5,6 +5,7 @@ import { FavoritesContext } from '@/app/context/FavoritesContext/FavoritesProvid
 import { calculateDiscountedPrice } from '@/app/helpers'
 import { Product } from '@/app/types/product'
 import Image from 'next/image'
+import {useFavoirtesContext} from "@/app/context/FavoritesContext/useFavoritesContext";
 
 interface ProductCardProps {
   product: Product
@@ -17,7 +18,7 @@ export default function ProductCard({
   showImage = true,
   showButton = true
 }: ProductCardProps) {
-  const { favorites, setFavorites } = useContext(FavoritesContext)
+  const { favorites, setFavorites } = useFavoirtesContext()
 
   const addToFavorites = (productToAdd: Product) => {
     setFavorites((currentFavorites) => [...currentFavorites, productToAdd])

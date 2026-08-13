@@ -16,6 +16,8 @@ export const FavoritesContext = createContext<FavoritesContextType>({
 function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<Product[]>([])
 
+
+
   const values = {
     favorites,
     setFavorites

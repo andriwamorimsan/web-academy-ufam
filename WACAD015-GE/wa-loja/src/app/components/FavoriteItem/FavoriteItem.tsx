@@ -5,6 +5,8 @@ import { FavoritesContext } from '@/app/context/FavoritesContext/FavoritesProvid
 import { calculateDiscountedPrice } from '@/app/helpers'
 import { Product } from '@/app/types/product'
 import Image from 'next/image'
+import {useFavoirtesContext} from "@/app/context/FavoritesContext/useFavoritesContext";
+import { useRemoveFaforites} from "@/app/context/FavoritesContext/useRemoveFaforite";
 
 interface FavoriteItemProps {
   favoriteItem: Product
@@ -13,13 +15,10 @@ interface FavoriteItemProps {
 export default function FavoriteItem({
   favoriteItem
 }: FavoriteItemProps) {
-  const { setFavorites } = useContext(FavoritesContext)
 
-  const removeFavorite = (id: string) => {
-    setFavorites((currentFavorites) =>
-      currentFavorites.filter((item) => item.id !== id)
-    )
-  }
+    const { removeFavorite } = useRemoveFaforites(favoriteItem.id)
+
+
 
   return (
     <tr key={favoriteItem.id}>
@@ -49,7 +48,7 @@ export default function FavoriteItem({
 
       <td>
         <button
-          onClick={() => removeFavorite(favoriteItem.id)}
+          onClick={removeFavorite}
           className='btn btn-outline-danger btn-sm'
         >
           Remover

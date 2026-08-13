@@ -4,9 +4,10 @@ import { useContext } from 'react'
 import { FavoritesContext } from '@/app/context/FavoritesContext/FavoritesProvider'
 import { calculateDiscountedPrice } from '@/app/helpers'
 import FavoriteItem from '../FavoriteItem/FavoriteItem'
+import {useFavoirtesContext} from "@/app/context/FavoritesContext/useFavoritesContext";
 
 export default function FavoritesList() {
-  const { favorites } = useContext(FavoritesContext)
+  const { favorites } = useFavoirtesContext()
 
   const totalFavoriteValue = favorites.reduce((acc, product) => {
     return (
