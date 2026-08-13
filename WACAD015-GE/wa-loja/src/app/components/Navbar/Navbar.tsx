@@ -1,8 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import { useLogoutContext } from '@/app/context/LogoutContext/useLogoutContext'
 
 export default function Navbar() {
+  const { logout } = useLogoutContext()
+
   return (
     <nav className='navbar navbar-expand-md bg-light border-bottom border-body sticky-top'>
       <div className='container-fluid'>
@@ -34,11 +37,9 @@ export default function Navbar() {
             </li>
           </ul>
 
-          <Link className='nav-link ' href='/login'>
-            <button type='button' className='btn btn-secondary'>
-              Sair
-            </button>
-          </Link>
+          <button type='button' className='btn btn-secondary' onClick={logout}>
+            Sair
+          </button>
         </div>
       </div>
     </nav>

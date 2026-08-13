@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { useContext } from "react";
+import { AuthContext} from "@/app/context/AuthContext/AuthProvider";
 
 type LoginFormInputs = {
   email: string
@@ -16,10 +18,11 @@ export default function LoginForm() {
     formState: { errors }
   } = useForm<LoginFormInputs>()
 
+  const { login } = useContext(AuthContext)
   const router = useRouter()
 
-  const onSubmit: SubmitHandler<LoginFormInputs> = () => {
-    router.push('/')
+  const onSubmit: SubmitHandler<LoginFormInputs> = (data) => {
+    login(data.email)
   }
 
   return (
