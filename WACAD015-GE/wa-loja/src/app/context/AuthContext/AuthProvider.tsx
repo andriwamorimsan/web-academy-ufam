@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface AuthproviderProps{
@@ -14,7 +14,7 @@ type AuthContextType = {
 }
 
 export const AuthContext = createContext<AuthContextType>({
-    email: '',
+    email: null,
     login: () => {},
     logout: () => {}
 })
@@ -23,9 +23,14 @@ function AuthProvider({children}: AuthproviderProps) {
     const [email, setEmail] = useState<string | null>(null)
     const router = useRouter()
 
+    useEffect(() => {
+        const user = localStorage.getItem('user')
+        setEmail(user)
+    }, [])
+
     const login = (email: string ) => {
         setEmail(email)
-        localStorage.setItem('user', email ?? '')
+        localStorage.setItem('user', email)
         router.push('/')
     }
 

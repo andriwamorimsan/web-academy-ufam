@@ -1,26 +1,20 @@
 'use client'
 
-import { useContext } from 'react'
-import { FavoritesContext } from '@/app/context/FavoritesContext/FavoritesProvider'
-import { calculateDiscountedPrice } from '@/app/helpers'
 import FavoriteItem from '../FavoriteItem/FavoriteItem'
-import {useFavoirtesContext} from "@/app/context/FavoritesContext/useFavoritesContext";
+import { useFavoritesProvider } from '@/app/context/FavoritesContext/useFavoritesContext'
 
 export default function FavoritesList() {
-  const { favorites } = useFavoirtesContext()
-
-  const totalFavoriteValue = favorites.reduce((acc, product) => {
-    return (
-      acc + calculateDiscountedPrice(Number(product.preco), product.desconto)
-    )
-  }, 0)
+  const { favorites, isLoadingFavorites, totalFavoritesValue } =
+    useFavoritesProvider()
 
   return (
     <div className='card mb-4'>
       <div className='row card-body'>
         <h5 className='card-title mb-4 fw-bold'>Lista de favoritos:</h5>
 
-        {favorites.length > 0 ? (
+        {isLoadingFavorites ? (
+          <p>Carregando favoritos...</p>
+        ) : favorites.length > 0 ? (
           <div className='table-responsive'>
             <table className='table table-borderless'>
               <thead>
@@ -51,7 +45,7 @@ export default function FavoritesList() {
         </small>
 
         <small className='text-muted'>
-          Valor total: R$ {totalFavoriteValue}
+          Valor total: R$ {totalFavoritesValue}
         </small>
       </div>
     </div>

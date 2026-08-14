@@ -1,12 +1,9 @@
 'use client'
 
-import { useContext } from 'react'
-import { FavoritesContext } from '@/app/context/FavoritesContext/FavoritesProvider'
 import { calculateDiscountedPrice } from '@/app/helpers'
 import { Product } from '@/app/types/product'
 import Image from 'next/image'
-import {useFavoirtesContext} from "@/app/context/FavoritesContext/useFavoritesContext";
-import { useRemoveFaforites} from "@/app/context/FavoritesContext/useRemoveFaforite";
+import { useFavoritesProvider } from '@/app/context/FavoritesContext/useFavoritesContext'
 
 interface FavoriteItemProps {
   favoriteItem: Product
@@ -15,10 +12,7 @@ interface FavoriteItemProps {
 export default function FavoriteItem({
   favoriteItem
 }: FavoriteItemProps) {
-
-    const { removeFavorite } = useRemoveFaforites(favoriteItem.id)
-
-
+  const { removeFavorite, isRemovingFavorite } = useFavoritesProvider()
 
   return (
     <tr key={favoriteItem.id}>
@@ -48,10 +42,11 @@ export default function FavoriteItem({
 
       <td>
         <button
-          onClick={removeFavorite}
+          onClick={() => removeFavorite(favoriteItem.id)}
           className='btn btn-outline-danger btn-sm'
+          disabled={isRemovingFavorite}
         >
-          Remover
+          {isRemovingFavorite ? 'Removendo...' : 'Remover'}
         </button>
       </td>
     </tr>

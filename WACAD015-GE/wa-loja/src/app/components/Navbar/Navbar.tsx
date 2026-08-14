@@ -1,10 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { useLogoutContext } from '@/app/context/LogoutContext/useLogoutContext'
+import { useContext } from 'react'
+import { AuthContext } from '@/app/context/AuthContext/AuthProvider'
 
 export default function Navbar() {
-  const { logout } = useLogoutContext()
+  const { email, logout } = useContext(AuthContext)
 
   return (
     <nav className='navbar navbar-expand-md bg-light border-bottom border-body sticky-top'>
@@ -37,9 +38,18 @@ export default function Navbar() {
             </li>
           </ul>
 
-          <button type='button' className='btn btn-secondary' onClick={logout}>
-            Sair
-          </button>
+          <div className='d-flex align-items-center gap-3'>
+            {email && <span className='text-muted'>{email}</span>}
+            {email ? (
+              <button type='button' className='btn btn-secondary' onClick={logout}>
+                Sair
+              </button>
+            ) : (
+              <Link href='/login' className='btn btn-secondary'>
+                Entrar
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </nav>

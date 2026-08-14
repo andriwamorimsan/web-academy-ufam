@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 
-import { useRouter } from 'next/navigation'
+import { useContext } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { AuthContext } from '@/app/context/AuthContext/AuthProvider'
 
 type RegisterFormInputs = {
   nome: string
@@ -19,10 +20,10 @@ export default function RegisterPage() {
     formState: { errors }
   } = useForm<RegisterFormInputs>()
 
-  const router = useRouter()
+  const { login } = useContext(AuthContext)
 
-  const onSubmit: SubmitHandler<RegisterFormInputs> = () => {
-    router.push('/')
+  const onSubmit: SubmitHandler<RegisterFormInputs> = (data) => {
+    login(data.email)
   }
   return (
     <main>
