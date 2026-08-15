@@ -6,6 +6,9 @@ jobs:
   build-node:
     runs-on: ubuntu-latest
     container: node:18
+    defaults:
+      run:
+        working-directory: WACAD017-INTEGRACAO/lab2
 
     steps:
       - uses: actions/checkout@v4
@@ -13,3 +16,4 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: npm install
+
