@@ -1,6 +1,12 @@
 {
   "name": "exemplo",
-  "main": "app.js"
-
-
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node app.js"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
 }
