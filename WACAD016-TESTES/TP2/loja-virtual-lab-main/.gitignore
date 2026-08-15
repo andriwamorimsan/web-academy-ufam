@@ -1,0 +1,24 @@
+# dependências
+node_modules
+
+# variáveis de ambiente (manter apenas os .env.example versionados)
+.env
+.env.local
+
+# build
+build
+dist
+
+# logs
+logs/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# coverage de testes
+coverage
+
+# sistema / editor
+.DS_Store
+.vscode
+.idea
