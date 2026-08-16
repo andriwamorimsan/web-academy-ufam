@@ -26,7 +26,7 @@ jobs:
           context: ./WACAD017-INTEGRACAO/lab03_docker
           push: true
           #dockerfile: ./Dockerfile   # Specify the path to your Dockerfile
-          tags: moisesgc/webacademy:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/webacademy:latest
 
   deploy:
     runs-on: ubuntu-latest
