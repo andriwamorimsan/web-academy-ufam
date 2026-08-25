@@ -1,0 +1,804 @@
+{
+  "info": {
+    "_postman_id": "d6211543-4992-408d-8d79-20b89a4e2195",
+    "name": "API SPOTIFY",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19988510"
+  },
+  "item": [
+    {
+      "name": "Albums",
+      "item": [
+        {
+          "name": "Get Album",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQDN3N1henaz6WG-lclApX8lOJ82GbRhab5kAAqJAh-zSTeB1OX4FdT9IQsnG23INbLghXInykzohrrXU-kDiwCHNpgQTpZ0ytJW4yQKgQfjDJtfNHtUnp4MV2fZF0jtFmLPFGGx_tbQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/albums/6akEvsycLGftJxYudPjmqK",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "albums",
+                "6akEvsycLGftJxYudPjmqK"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Several Albums",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBLKZW8a37I5KI4mQ9xCT-n7Wl7FkrGfLNi_m5Fq3isVoloO4GFEuOZP6eFGgQujlyix6WY7BHB6NeAf31OgtFpfjQScMiehGP5TGvNMeC1XfV1BnOinXtzDmuUbwqzR-bSK8g3wikr",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX%2C1A2GTWGtFfWp7KSQTwWOyo%2C2noRn2Aes5aoNVsU6iWThc",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "albums"
+              ],
+              "query": [
+                {
+                  "key": "ids",
+                  "value": "382ObEPsp2rxGrnsizN5TX%2C1A2GTWGtFfWp7KSQTwWOyo%2C2noRn2Aes5aoNVsU6iWThc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Album Tracks",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQDaArKRCDtj2H0NsS7h_ncan1iA_SurdP_0R5KV6rL1YNlWNk6_QUcTc-bdyuSwKC8K6WTuBPOQ2UjykpD8d-ulO037yvrfcHJ_DIUGQ2cU-093HaH0C8CdrYH6u-y0XxbKF3etdJa7",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/albums/6akEvsycLGftJxYudPjmqK/tracks",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "albums",
+                "6akEvsycLGftJxYudPjmqK",
+                "tracks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get New Releases",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQB_mgmSMuRc-elkyg9fDvybHNmN2cFp6o-Swoik82J_CL-C5XsSE70pja7lwzJR4bDBbPe8nA1Rj3FPehySJDf8Sj5aNnId_kkxCK40z4TB-pHuvD18pfNQB62Ha-PODMgVi6tDm7AM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/new-releases",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "new-releases"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Artists",
+      "item": [
+        {
+          "name": "Get Artist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQDN3N1henaz6WG-lclApX8lOJ82GbRhab5kAAqJAh-zSTeB1OX4FdT9IQsnG23INbLghXInykzohrrXU-kDiwCHNpgQTpZ0ytJW4yQKgQfjDJtfNHtUnp4MV2fZF0jtFmLPFGGx_tbQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application-json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application-json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "artists",
+                "0TnOYISbd1XYRBk9myaseg"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Several Artists",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application-json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application-json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.spotify.com/v1/artists?ids=0TnOYISbd1XYRBk9myaseg",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "artists"
+              ],
+              "query": [
+                {
+                  "key": "ids",
+                  "value": "0TnOYISbd1XYRBk9myaseg"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Artist Albums",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "artists",
+                "0TnOYISbd1XYRBk9myaseg",
+                "albums"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Artist Top Tracks",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=BR",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "artists",
+                "0TnOYISbd1XYRBk9myaseg",
+                "top-tracks"
+              ],
+              "query": [
+                {
+                  "key": "market",
+                  "value": "BR"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Related Artists",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/related-artists",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "artists",
+                "0TnOYISbd1XYRBk9myaseg",
+                "related-artists"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tracks",
+      "item": [
+        {
+          "name": "Get Track",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/tracks/4iV5W9uYEdYUVa79Axb7Rh",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "tracks",
+                "4iV5W9uYEdYUVa79Axb7Rh"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Several Tracks",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/tracks?ids=4iV5W9uYEdYUVa79Axb7Rh",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "tracks"
+              ],
+              "query": [
+                {
+                  "key": "ids",
+                  "value": "4iV5W9uYEdYUVa79Axb7Rh"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Playlists",
+      "item": [
+        {
+          "name": "Get Playlist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "playlists",
+                "37i9dQZF1DXcBWIGoYBM5M"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Playlist Items",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/items",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "playlists",
+                "37i9dQZF1DXcBWIGoYBM5M",
+                "items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Featured Playlists",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/featured-playlists",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "featured-playlists"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Category's Playlists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/categories/pop/playlists",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "categories",
+                "pop",
+                "playlists"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Playlist Cover Image",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/images",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "playlists",
+                "37i9dQZF1DXcBWIGoYBM5M",
+                "images"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Browse",
+      "item": [
+        {
+          "name": "Browse Categories",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/categories",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Browse Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQBQvSb1S6finse9Y0JqRDI2P2rlpFU0b5smHloZDMTv_hIWosKFu29-kIxCe4u0rIfedGm4JPVtDwUwbYMcryj1CQkan7ObrvWL0ZTJeg7IF65NOGPTCPCe9bbkcLsNWJMRFm6mwypH",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/categories/pop",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "categories",
+                "pop"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Browse Category Playlists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/categories/pop/playlists",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "categories",
+                "pop",
+                "playlists"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Browse Featured Playlists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/featured-playlists",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "featured-playlists"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Browse New Releases",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "BQDN3N1henaz6WG-lclApX8lOJ82GbRhab5kAAqJAh-zSTeB1OX4FdT9IQsnG23INbLghXInykzohrrXU-kDiwCHNpgQTpZ0ytJW4yQKgQfjDJtfNHtUnp4MV2fZF0jtFmLPFGGx_tbQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.spotify.com/v1/browse/new-releases",
+              "protocol": "https",
+              "host": [
+                "api",
+                "spotify",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "browse",
+                "new-releases"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Get Access Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "aplitaciton-json",
+            "disabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "aplitaciton-json",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            },
+            {
+              "key": "client_id",
+              "value": "x",
+              "disabled": true
+            },
+            {
+              "key": "client_secret",
+              "value": "x",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://accounts.spotify.com/api/token",
+          "protocol": "https",
+          "host": [
+            "accounts",
+            "spotify",
+            "com"
+          ],
+          "path": [
+            "api",
+            "token"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            },
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            },
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

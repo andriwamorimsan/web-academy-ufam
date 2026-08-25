@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1786741448989" clover="3.2.0">
-  <project timestamp="1786741448989" name="All files">
-    <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="19" coveredelements="19" complexity="0" loc="12" ncloc="12" packages="1" files="1" classes="1"/>
+<coverage generated="1786996488190" clover="3.2.0">
+  <project timestamp="1786996488190" name="All files">
+    <metrics statements="12" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1" elements="19" coveredelements="6" complexity="0" loc="12" ncloc="12" packages="1" files="1" classes="1"/>
     <file name="validacoes.js" path="C:\projetos\web-academy-ufam\WACAD016-TESTES\TP1\tests-app-main\src\utils\validacoes.js">
-      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-      <line num="8" count="3" type="stmt"/>
-      <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
-      <line num="11" count="2" type="stmt"/>
-      <line num="24" count="4" type="stmt"/>
-      <line num="32" count="4" type="stmt"/>
-      <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="34" count="3" type="stmt"/>
+      <metrics statements="12" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="32" count="0" type="stmt"/>
+      <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="34" count="0" type="stmt"/>
       <line num="53" count="3" type="stmt"/>
       <line num="54" count="3" type="stmt"/>
       <line num="55" count="4" type="stmt"/>
       <line num="57" count="3" type="stmt"/>
-      <line num="61" count="3" type="stmt"/>
+      <line num="61" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
